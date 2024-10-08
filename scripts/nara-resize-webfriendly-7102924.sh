@@ -22,12 +22,13 @@ cd ../jpg
 # Remove whitespace and '(FINISHED)' from directories
 echo 'Cleaning directory and file names.. '
 
-find . -type d -exec rename 's/\s//' {} \; -exec rename 's/\(FINISHED\)//' {} \;
+find -type d -exec rename 's/\s//' * {} +
+find -type d -exec rename 's/\(FINISHED\)//' {} +
+find -type d -exec rename 's/#//' {} +
+find -type d -exec rename 's/Roll/Roll_/' {} +
 
 # Remove whitespace from filenames
-find -iname '*.jpg' -type f -exec rename 's/\s//' {} +
-# Add underscore after Roll
-find -iname '*.jpg' -type f -exec rename 's/Roll/Roll_/' {} +
+find -iname '*.jpg' -type f -exec rename 's/\s//' * {} +
 
 # Export dirlist/filelist as csv
 echo 'Exporting filelist as CSV.. '
