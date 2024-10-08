@@ -6,7 +6,7 @@ cd ..
 # Find the TIFs and bulk resize
 echo 'Resizing and reformatting TIFs as JPGs.. '
 
-find -iname '*.tif' -exec mogrify -resize 1092266@ -format jpg {} \; -exec echo ': Done' \;
+find -iname '*.tif' -exec mogrify -resize 1092266@ -format jpg {} \; -exec echo {}': Done' \;
 
 # Move JPGs and directory structure to jpg directory
 echo 'Copying files to jpg directory.. '
