@@ -1,7 +1,7 @@
 # /bin/sh
 
 echo 'Starting preprocessing.. '
-cd ..
+#cd ..
 rm -r jpg/*
 
 # Find the TIFs and bulk resize
@@ -34,7 +34,12 @@ find -iname '*.jpg' -type f -exec rename 's/\s//' * {} +
 # Export dirlist/filelist as csv
 echo 'Exporting filelist as CSV.. '
 
-find -type f -printf '"%p",\n' > ../filelist.csv
+#find -type f -printf '"%p",\n' > ../filelist.csv
+find -type f -printf '%f\n' > ../filelist.csv
 
 echo 'Completed preprocessing successfully.. '
-cd ../scripts
+echo 'Copying files to nara-upload..'
+
+#C:\Users\User\Workspace\JDCRP
+cd ..
+cp -r jpg /mnt/c/Users/User/Workspace/JDCRP/nara-upload
