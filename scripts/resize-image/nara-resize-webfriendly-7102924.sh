@@ -26,7 +26,7 @@ echo 'Cleaning directory and file names.. '
 find -type d -exec rename 's/\s//' * {} +
 find -type d -exec rename 's/\(FINISHED\)//' {} +
 find -type d -exec rename 's/#//' {} +
-find -type d -exec rename 's/Roll/Roll_/' {} +
+#find -type d -exec rename 's/Roll/Roll_/' {} +
 
 # Remove whitespace from filenames
 find -iname '*.jpg' -type f -exec rename 's/\s//' * {} +
@@ -35,7 +35,7 @@ find -iname '*.jpg' -type f -exec rename 's/\s//' * {} +
 echo 'Exporting filelist as CSV.. '
 
 #find -type f -printf '"%p",\n' > ../filelist.csv
-find -type f -printf '%f\n' > ../filelist.csv
+find -iname '*.jpg' -type f -printf '%p\n' > ../filelist-3.csv
 
 echo 'Completed preprocessing successfully.. '
 echo 'Copying files to nara-upload..'
